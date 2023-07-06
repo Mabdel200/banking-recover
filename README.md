@@ -1,26 +1,9 @@
-[![@coreui angular](https://img.shields.io/badge/@coreui%20-angular-lightgrey.svg?style=flat-square)](https://github.com/coreui/angular)
-[![npm-coreui-angular][npm-coreui-angular-badge]][npm-coreui-angular]
-[![NPM downloads][npm-coreui-angular-download]][npm-coreui-angular]  
-[![@coreui coreui](https://img.shields.io/badge/@coreui%20-coreui-lightgrey.svg?style=flat-square)](https://github.com/coreui/coreui)
-[![npm package][npm-coreui-badge]][npm-coreui]
-[![NPM downloads][npm-coreui-download]][npm-coreui]  
-![angular](https://img.shields.io/badge/angular-^16.0.0-lightgrey.svg?style=flat-square&logo=angular)
 
-[npm-coreui-angular]: https://www.npmjs.com/package/@coreui/angular
-[npm-coreui-angular-badge]: https://img.shields.io/npm/v/@coreui/angular.png?style=flat-square
-[npm-coreui-angular-badge-next]: https://img.shields.io/npm/v/@coreui/angular/next?style=flat-square&color=red
-[npm-coreui-angular-download]: https://img.shields.io/npm/dm/@coreui/angular.svg?style=flat-square
-[npm-coreui]: https://www.npmjs.com/package/@coreui/coreui
-[npm-coreui-badge]: https://img.shields.io/npm/v/@coreui/coreui.png?style=flat-square
-[npm-coreui-download]: https://img.shields.io/npm/dm/@coreui/coreui.svg?style=flat-square
 
-# CoreUI Free Admin Dashboard Template for Angular 16
+# Using CoreUI to implement Banking Project
 
-CoreUI is meant to be the UX game changer. Pure & transparent code is devoid of redundant components, so the app is light enough to offer ultimate user experience. This means mobile devices also, where the navigation is just as easy and intuitive as on a desktop or laptop. The CoreUI Layout API lets you customize your project for almost any device – be it Mobile, Web or WebApp – CoreUI covers them all!
-
-- [CoreUI Angular Admin Dashboard Template & UI Components Library](https://coreui.io/angular)  
-- [CoreUI Angular Demo](https://coreui.io/angular/demo/4.3/free/)
-- [CoreUI Angular Docs](https://coreui.io/angular/docs/)  
+Administration of Wallet and promised client of banking collection
+ 
 
 ## Table of Contents
 
@@ -31,10 +14,7 @@ CoreUI is meant to be the UX game changer. Pure & transparent code is devoid of 
 * [Basic usage](#basic-usage)
 * [What's included](#whats-included)
 * [Documentation](#documentation)
-* [Versioning](#versioning)
-* [Creators](#creators)
-* [Community](#community)
-* [Copyright and License](#copyright-and-license)
+
 
 ## Versions
 
@@ -53,10 +33,6 @@ CoreUI is meant to be the UX game changer. Pure & transparent code is devoid of 
 * 💪  [CoreUI Pro Next.js Admin Template](https://coreui.io/product/next-js-dashboard-template/)
 * 💪  [CoreUI Pro Vue Admin Template](https://coreui.io/product/vue-dashboard-template/)
 
-## Quick Start
-
-- [Download the latest release](https://github.com/coreui/coreui-free-angular-admin-template/)
-- Clone the repo: `git clone https://github.com/coreui/coreui-free-angular-admin-template.git`
 
 #### <i>Prerequisites</i>
 Before you begin, make sure your development environment includes `Node.js®` and an `npm` package manager.
@@ -175,48 +151,3 @@ Get updates on CoreUI's development and chat with the project maintainers and co
 - Follow [@core_ui on Twitter](https://twitter.com/core_ui).
 - Read and subscribe to [CoreUI Blog](https://coreui.io/blog/).
 
-## Support CoreUI Development
-
-CoreUI is an MIT-licensed open source project and is completely free to use. However, the amount of effort needed to maintain and develop new features for the project is not sustainable without proper financial backing. You can support development by buying the [CoreUI PRO](https://coreui.io/pricing/) or by becoming a sponsor via [Open Collective](https://opencollective.com/coreui/).
-
-<!--- StartOpenCollectiveBackers -->
-
-### Platinum Sponsors
-
-Support this project by [becoming a Platinum Sponsor](https://opencollective.com/coreui/contribute/platinum-sponsor-40959/). A large company logo will be added here with a link to your website.
-
-<a href="https://opencollective.com/coreui/contribute/platinum-sponsor-40959/checkout"><img src="https://opencollective.com/coreui/tiers/platinum-sponsor/0/avatar.svg?avatarHeight=100"></a>
-
-### Gold Sponsors
-
-Support this project by [becoming a Gold Sponsor](https://opencollective.com/coreui/contribute/gold-sponsor-40960/). A big company logo will be added here with a link to your website.
-
-<a href="https://opencollective.com/coreui/contribute/gold-sponsor-40960/checkout"><img src="https://opencollective.com/coreui/tiers/gold-sponsor/0/avatar.svg?avatarHeight=100"></a> 
-
-### Silver Sponsors
-
-Support this project by [becoming a Silver Sponsor](https://opencollective.com/coreui/contribute/silver-sponsor-40967/). A medium company logo will be added here with a link to your website.
-
-<a href="https://opencollective.com/coreui/contribute/silver-sponsor-40967/checkout"><img src="https://opencollective.com/coreui/tiers/gold-sponsor/0/avatar.svg?avatarHeight=100"></a>
-
-### Bronze Sponsors
-
-Support this project by [becoming a Bronze Sponsor](https://opencollective.com/coreui/contribute/bronze-sponsor-40966/). The company avatar will show up here with a link to your OpenCollective Profile.
-
-<a href="https://opencollective.com/coreui/contribute/bronze-sponsor-40966/checkout"><img src="https://opencollective.com/coreui/tiers/bronze-sponsor/0/avatar.svg?avatarHeight=100"></a> 
-
-### Backers
-
-Thanks to all the backers and sponsors! Support this project by [becoming a backer](https://opencollective.com/coreui/contribute/backer-40965/).
-
-<a href="https://opencollective.com/coreui/contribute/backer-40965/checkout" target="_blank" rel="noopener"><img src="https://opencollective.com/coreui/backers.svg?width=890"></a>
-
-<!--- EndOpenCollectiveBackers -->
-
-## Copyright and License
-
-copyright 2017-2023 creativeLabs Łukasz Holeczek.   
-
- 
-Code released under [the MIT license](https://github.com/coreui/coreui-free-react-admin-template/blob/master/LICENSE).
-There is only one limitation you can't re-distribute the CoreUI as stock. You can’t do this if you modify the CoreUI. In the past, we faced some problems with persons who tried to sell CoreUI based templates.
