@@ -1,0 +1,46 @@
+<c-row ngPreserveWhitespaces>
+   
+    <c-col xs="12">
+      <c-card class="mb-4">
+        <c-card-header>
+          <strong>Visu des utilisateurs de </strong> <small>Banking recover</small>
+        </c-card-header>
+        <c-card-body>
+          <p class="text-medium-emphasis small">
+            Informations sur les utilisateurs.
+          </p>
+        
+            <table cTable  [striped]="true"  [hover]="true"  [bordered]="true" >
+              <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Noms</th>
+                <th scope="col">Email</th>
+                <th scope="col">Telephone</th>
+                <th scope="col">Profil</th>
+                <th scope="col">Role</th>
+                <th scope="col">Actions</th>
+              </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let user of users" >
+                  <td class="text-primary">i</td>
+                  <td>{{ user.username }}</td>  
+                  <td>{{ user.email }}</td>  
+                  <td>{{ user.phone }}</td> 
+                  <td>{{ user.photo }}</td>  
+                  <td class="text-primary">{{ user.role }}</td>    
+                  <td>
+                      <button class="btn btn-warning"> <i class="fa fa-edit"></i></button>
+                      <button class="btn btn-danger"> <i class="fa fa-trash"></i></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+    
+        </c-card-body>
+      </c-card>
+    </c-col>
+
+  </c-row>
+  

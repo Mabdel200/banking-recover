@@ -1,0 +1,108 @@
+<c-row ngPreserveWhitespaces>
+
+    <c-col xs="10">
+      <c-card class="mb-4">
+        <c-card-header>
+          <strong>Formulaire d'enregistrement d'un dossier</strong>
+        </c-card-header>
+        <c-card-body>
+       
+            <form cForm  [formGroup]="dataForm" (ngSubmit)="save()" >
+              <div class="mb-3">
+                <label cLabel for="exampleFormControlInput1">Designation du dossier</label>
+                <input cFormControl 
+                       id="Name1"
+                       placeholder="Name of the folder"
+                       type="text"
+                       formControlName="nom" 
+                />
+              </div>
+              <div class="mb-3">
+                <label cLabel for="exampleFormControlInput1">Date de creation</label>
+                <input cFormControl 
+                       id="dateCreation1"
+                       placeholder=""
+                       type="date"
+                       formControlName="dateCreation" 
+                />
+              </div>
+              <div class="mb-3">
+                <label cLabel for="examplet1">Montant</label>
+                <input cFormControl 
+                       id="montant"
+                       placeholder="Saisir votre montant"
+                       type="number"
+                       formControlName="montant" 
+                />
+              </div>
+              <div class="mb-3">
+                <label cLabel for="exampleForm1">Pourcentage</label>
+                <input cFormControl 
+                       id="percent"
+                       placeholder="Pourcentage"
+                       type="text"
+                       formControlName="pourcentage" 
+                />
+              </div>
+              <div class="mb-3">
+                <label cLabel for="exampleFormControlInput1">Delais</label>
+                <input cFormControl 
+                          id="Delais1"
+                          placeholder=""
+                          type="date"
+                       formControlName="delai" 
+
+                  />
+              </div>
+              <div class="mb-3">
+                <label cLabel for="exampleFormControlInput1">Date de promesse</label>
+                <input cFormControl 
+                          id="Promeuss1"
+                          placeholder=""
+                          type="date"
+                       formControlName="datePromesse" 
+
+                  />
+              </div>
+              
+              <div class="mb-3">
+                <label cLabel for="exampleFormControlInput1">Cycle</label>
+                <select aria-label="Default " cSelect    formControlName="cycle" >
+                  <option>Selectionner un cycle </option>
+                  <option value="cycle0">Cycle0</option>
+                  <option value="cycle1">Cycle1</option>
+                  <option value="cycle2">Cycle2</option>
+                  <option value="cycle3">Cycle3</option>
+                  <option value="cycle4">Cycle4</option>
+                  <option value="cycle5">Cycle5</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label cLabel for="exampleFormControlInput1">Agent</label>
+                <select aria-label="Default " cSelect    formControlName="user" >
+                    <option>Selectionner l'Agent concerné </option>
+                    <option *ngFor="let agent of agents" [ngValue]="agent.id">{{agent.username}}</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label cLabel for="exampleFormControlInput1">Client</label>
+                <select aria-label="Default " cSelect formControlName="client"  >
+                    <option>Selectionner le client concerné </option>
+                    <option *ngFor="let client of clients" [ngValue]="client.id">{{client.name}} de categorie {{client.type}} </option>
+                </select>
+              </div>
+
+              <button cButton class="mb-3 mr-1"  type="submit">
+                 Enregistrer
+              </button>
+             
+            </form>
+      
+        </c-card-body>
+      </c-card>
+    </c-col>
+
+  </c-row>
+  
+  
+

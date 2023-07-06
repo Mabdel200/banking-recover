@@ -1,0 +1,63 @@
+<c-row ngPreserveWhitespaces>
+   
+  <c-col xs="12">
+    <c-card class="mb-4">
+      <c-card-header>
+        <strong>Visu des dossiers de</strong> <small>Banking recover</small>
+      </c-card-header>
+      <c-card-body>
+        <p class="text-medium-emphasis small">
+          Informations sur les dossiers d'un wallet.
+        </p>
+      <div class="table-responsive">
+          <table class="table align-middle" cTable  [striped]="true"  [hover]="true"  [bordered]="true" >
+            <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Nom</th>
+          
+              <th scope="col">Montant</th>
+              <th scope="col">Pourcentage</th>
+              <th scope="col">Versement</th>
+              <th scope="col">Total</th>
+              <th scope="col">Cycle</th>
+              <th scope="col">#Agent</th>
+              <th scope="col">#Client</th>
+              <th scope="col">Delai</th>
+              <th scope="col">Date de creation</th>
+              <th scope="col">Date de promesse</th>
+              <th scope="col">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <tr *ngFor="let folder of folders" >
+                <td class="text-primary">i</td>
+                <td>{{ folder.name }}</td>  
+                <td>{{ folder.montant }}</td>  
+                <td>{{ folder.pourcentage }}</td>  
+                <td>{{ folder.versement }}</td>  
+                <td>{{ folder.montantTotal }}</td>  
+                <td class="text-success">{{ folder.cycle }}</td>  
+                <td>{{ folder.user }}</td>  
+                <td>{{ folder.client }}</td>  
+                <td class="text-danger">{{ folder.delai }}</td>  
+                <td>{{ folder.dateCreation }}</td>  
+                <td class="text-warning">{{ folder.datePromesse }}</td>  
+                <td>
+                    <button class="btn btn-warning"> <i class="fa fa-edit">Editer</i></button>
+                    <button class="btn btn-danger"> <i class="fa fa-trash">Supprimer</i></button>
+                </td>
+              </tr>
+
+           
+            </tbody>
+          </table>
+        </div>
+  
+      </c-card-body>
+    </c-card>
+  </c-col>
+
+</c-row>
+

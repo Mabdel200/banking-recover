@@ -1,0 +1,64 @@
+<div class="fade-in">
+  <c-card class="mb-4">
+    <c-card-header>
+      Cycles
+    </c-card-header>
+    <c-card-body>
+      <p>Cycles et caractérisques</p>
+      <table class="table table-striped table-hover"  >
+        <thead>
+          <tr>
+            <th>Cycle</th>
+            <th>caractérisques</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <p>0</p>
+            </td>
+            <td>Aucun impayé (pour mémoire, les clients entrés en defaut restent en situation défaut jusqu'à la fin du periode de probatoire même s'il n'y a pas d'impayés mais pour le recouvrement nous considérons ces clients comme étant en cycle 0 tant qu'il n'y a pas d'impayés) </td>
+          </tr>
+          <tr>
+            <td>
+              <p>1</p>
+            </td>
+            <td>début d'impayés: risque réduit</td>
+          </tr>
+          <tr>
+            <td>
+              <p>2</p>
+            </td>
+            <td>situation en dégradation, mois calendaire avant provisionnement </td>
+          </tr>
+          <tr>
+            <td>
+              <p>3</p>
+            </td>
+            <td>situation dégradée, 2 mois calendaire avant passage en défaut</td>
+          </tr>
+          <tr>
+            <td>
+              <p>4</p>
+            </td>
+            <td>Client en défaut non déchu du terme</td>
+          </tr>
+          <tr>
+            <td>
+              <p>5</p>
+            </td>
+            <td>Client avec encours déchu du terme</td>
+          </tr>
+        </tbody>
+      </table>
+    </c-card-body>
+  </c-card>
+  <c-card class="mb-4">
+    <c-card-header>
+      Calcul du nombre de jours d'incidents pour défaut
+    </c-card-header>
+    <c-card-body>
+     Les cycles 0/1/2/3/4 sont calculés sur la base du nombre de jours d'incidents, le cycle 5 est géré manuellement
+    </c-card-body>
+  </c-card>
+  </div>

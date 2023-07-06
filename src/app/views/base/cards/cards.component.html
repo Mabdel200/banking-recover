@@ -1,0 +1,59 @@
+<c-row ngPreserveWhitespaces>
+   
+  <c-col xs="12">
+    <c-card class="mb-4">
+      <c-card-header>
+        <strong>Visu des dossiers Cyclique</strong> <small>Banking recover</small>
+      </c-card-header>
+      <c-card-body>
+        <p class="text-medium-emphasis small">
+          Informations sur les dossiers par cycle .
+        </p>
+      <div class="table-responsive">
+          <table class="table align-middle" cTable  [striped]="true"  [hover]="true"  [bordered]="true" >
+            <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Cycle</th>
+          
+              <th scope="col">Montant</th>
+              <th scope="col">Pourcentage</th>
+              <th scope="col">Versement</th>
+              <th scope="col">Total</th>
+          
+              <th scope="col">Statut</th>
+              <th scope="col">#Agent</th>
+              <th scope="col">#Client</th>
+              <th scope="col">Delai</th>
+              <th scope="col">Date de creation</th>
+              <th scope="col">Date de promesse</th>
+            
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>cycle2</td>
+              <td style="width: 15%;" table-width="50px">2000000 F</td>
+              <td>5%</td>
+              <td>450000</td>
+              <td>450000</td>
+            
+              <td style="color:green">Actif</td>
+              <td style="color:rgb(146, 103, 24)">Mamoudou</td>
+              <td style="color:rgb(146, 103, 24)">Alioum</td>
+              <td style="color:red; text-decoration-style: solid;">30-07-2023</td>
+              <td>05-07-2023</td>
+              <td>25-07-2023</td>
+             
+            </tr>
+            </tbody>
+          </table>
+        </div>
+  
+      </c-card-body>
+    </c-card>
+  </c-col>
+
+</c-row>
+
