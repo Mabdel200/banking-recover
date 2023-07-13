@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FolderService } from 'src/app/services/folder/folder.service';
 
 @Component({
   selector: 'app-cards',
@@ -6,20 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./cards.component.scss']
 })
 export class CardsComponent {
-
-  colors = [
-    { color: 'primary', textColor: 'primary' },
-    { color: 'secondary', textColor: 'secondary' },
-    { color: 'success', textColor: 'success' },
-    { color: 'danger', textColor: 'danger' },
-    { color: 'warning', textColor: 'warning' },
-    { color: 'info', textColor: 'info' },
-    { color: 'light' },
-    { color: 'dark' }
-  ];
-
-  imgContext = { $implicit: 'top', bottom: 'bottom' };
-
-  constructor() { }
-
+     // Initializer
+     public folders: any
+     constructor( private entityService: FolderService){}
+ 
+     // Get All entries
+     ngOnInit(): void { 
+         this.entityService.getFolder().subscribe( (datas) =>{
+           console.log(datas);
+           this.folders =datas;
+      })
+    }
 }

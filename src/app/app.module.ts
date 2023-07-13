@@ -16,7 +16,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 // Import containers
-import { DefaultFooterComponent, DefaultHeaderComponent, DefaultLayoutComponent } from './containers';
+import { DefaultFooterComponent, DefaultHeaderComponent, DefaultLayoutComponent, AgentLayoutComponent } from './containers';
 
 import {
   AvatarModule,
@@ -45,7 +45,8 @@ import { LoginComponent } from './login/login.component';
 const APP_CONTAINERS = [
   DefaultFooterComponent,
   DefaultHeaderComponent,
-  DefaultLayoutComponent
+  DefaultLayoutComponent,
+  AgentLayoutComponent
 ];
 
 @NgModule({

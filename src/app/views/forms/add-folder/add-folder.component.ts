@@ -55,6 +55,6 @@ export class AddFolderComponent  implements OnInit{
     }
 
     redirectToFolderList(){
-      this.router.navigate(['/base/breadcrumbs'])
+      this.router.navigate(['/base/breadcrumb'])
   }
 }

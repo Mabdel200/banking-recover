@@ -1,9 +1,10 @@
 <c-row ngPreserveWhitespaces>
-
-    <c-col xs="10">
+    <c-col xs="10"  class="col-lg-8 col-md-8 offset-md-2 offset-lg-2">
       <c-card class="mb-4">
         <c-card-header>
-          <strong>Formulaire d'enregistrement d'un nouvel utilisateur</strong>
+          <h5 class="brand-text text-center font-size-10 text-black " style="font-weight: bold">
+            <span class="fa fa-user "></span> Ajouter un utilisateur
+        </h5>
         </c-card-header>
         <c-card-body>
        
@@ -53,10 +54,11 @@
           
                 </select>
               </div>
-
-              <button cButton class="mb-3 mr-1" style="align-items:center;justify-content: center;" type="submit">
-                Enregistrer
-              </button>
+              <div class="col-lg-6 col-md-6 text-center offset-3">
+                  <button type="submit" class="btn btn-primary mt-40 waves-effect waves-classic">
+                      <span class="fa fa-save"></span> Enregistrer
+                  </button>
+              </div>
              
             </form>
       
@@ -64,6 +66,7 @@
       </c-card>
     </c-col>
 
-  </c-row>
-  
+</c-row>
+
+
   

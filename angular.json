@@ -37,9 +37,17 @@
               "src/assets"
             ],
             "styles": [
-              "src/scss/styles.scss"
+              "src/scss/styles.scss",
+              "src/assets/dist/css/jquery.dataTables.css",
+              "src/assets/dist/resources/syntax/shCore.css",
+              "src/assets/dist/resources/demo.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "src/assets/dist/jquery-3.5.1.js",
+              "src/assets/dist/js/jquery.dataTables.js",
+              "src/assets/dist/resources/syntax/shCore.js",
+              "src/assets/dist/resources/demo.js"
+            ],
             "allowedCommonJsDependencies": [
               "chart.js"
             ]

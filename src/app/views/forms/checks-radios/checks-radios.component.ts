@@ -1,54 +1,48 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
+import { FolderService } from 'src/app/services/folder/folder.service';
+import { UserService } from 'src/app/services/user/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-checks-radios',
   templateUrl: './checks-radios.component.html',
   styleUrls: ['./checks-radios.component.scss']
 })
-export class ChecksRadiosComponent {
+export class ChecksRadiosComponent implements OnInit {
+  dataForm = new FormGroup({
+    montant: new FormControl(),
+});
 
-  formGroup = this.formBuilder.group({
-    flexRadioGroup: this.formBuilder.group({
-      flexRadioDefault: this.formBuilder.control('two')
-    }),
-    flexRadioGroupDisabled: this.formBuilder.group({
-      flexRadioDefault: this.formBuilder.control({ value: 'two', disabled: true })
-    }),
-    flexCheckGroup: this.formBuilder.group({
-      checkOne: [false],
-      checkTwo: [true]
-    }),
-    flexCheckGroupDisabled: this.formBuilder.group({
-      checkThree: [{ value: false, disabled: true }],
-      checkFour: [{ value: true, disabled: true }]
-    }),
-    btnCheckGroup: this.formBuilder.group({
-      checkbox1: [true],
-      checkbox2: [false],
-      checkbox3: [{value: false, disabled: true}]
-    }),
-    btnRadioGroup: this.formBuilder.group({
-      radio1: this.formBuilder.control({ value: 'Radio2' })
-    })
-  });
+  // Initializer
+  constructor( private folderService: FolderService, private userService: UserService,  private router:Router ){}
+  clients:any;
+  agents:any;
+  //  Get All entries
+    ngOnInit(): void { 
+      this.loadData()
+    }
 
+    loadData() {
+      // Get all  agent
+      this.userService.getUserByRole('2').subscribe((data) => {
+            console.log(data)
+            this.agents = data
+       })
+      // Get all clients
+       this.userService.getClients().subscribe((data) => {
+            console.log(data)
+            this.clients = data
+       })
+    }
 
-  constructor(
-    private formBuilder: UntypedFormBuilder
-  ) { }
+    save() {   
+        this.folderService.saveFolder(this.dataForm.value).subscribe( )
+        this.redirectToVersementList();
+    }
 
-  setCheckBoxValue(controlName: string) {
-    const btnCheckGroup = this.formGroup.controls['btnCheckGroup'];
-    const prevValue = btnCheckGroup.get(controlName)?.value;
-    const groupValue = {...btnCheckGroup.value};
-    groupValue[controlName] = !prevValue;
-    btnCheckGroup.patchValue(groupValue);
+    redirectToVersementList(){
+      this.router.navigate(['/base/collapse']);
   }
-
-  setRadioValue(value: string): void {
-    const group = this.formGroup.controls['btnRadioGroup'];
-    group.setValue({ radio1: value });
-  }
-
 }

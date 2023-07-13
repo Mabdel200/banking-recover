@@ -2,25 +2,19 @@ import { INavData } from '@coreui/angular';
 
 export const navItems: INavData[] = [
   {
-    name: 'BANKING RECOVER',
+    name: 'BANKING RECOVERING',
     url: '/dashboard',
     iconComponent: { name: 'cil-speedometer' },
-    // badge: {
-    //   color: 'badge rounded-pill text-bg-dark',
-    //   text: 'NEW'
-    // }
   },
 // Menu Users
 {
   title: true,
   name: 'Gestion des Utilisateurs',
-  iconComponent: { name: 'cil-user' },
-
 },
 {
   name: 'Ajouter',
   url: '/forms/add-user',
-  iconComponent: { name: 'cil-notes' },
+  iconComponent: { name: 'cil-user' },
 
 },
 {
@@ -29,14 +23,6 @@ export const navItems: INavData[] = [
   iconComponent: { name: 'cil-notes' },
 
 },
-// Menu Cycle
-
-// {
-//   name: 'Etat des cycles',
-//   url: '/base/list-cycles',
-//   iconComponent: { name: 'cil-notes' },
-
-// },
 
   // Menu recouvrement
   {
@@ -55,69 +41,56 @@ export const navItems: INavData[] = [
     iconComponent: { name: 'cil-notes' },
     linkProps: { fragment: 'someAnchor' }
   },
+  // Portefeuille Client
   {
-    name: 'Wallet',
-    url: '/base',
-    iconComponent: { name: 'cil-notes' },
-    children: [
-      {
-        name: 'Ajouter un dossier',
-        url: '/forms/add-folder'
-      },
-      {
-        name: 'Liste de Dossier',
-        url: '/base/breadcrumbs'
-      },
-      {
-        name: 'Liste des dossiers par cycle',
-        url: '/base/cards'
-      },
-      {
-        name: 'Liste des dossiers expirer',
-        url: '/base/carousel'
-      },
-     
-    ]
+    title: true,
+    name: 'Portefeuille'
   },
   {
-    name: 'Gestions de Promesse',
-    url: '/buttons',
-    iconComponent: { name: 'cil-notes' },
-
-    children: [
-      {
-        name: 'Dossier ',
-        url: '/buttons/buttons'
-      },
-
-    ]
+    name: 'Ajouter un dossier',
+    url: '/forms/add-folder',
+    iconComponent: { name: 'cil-user' },
   },
- {
-    name: 'Tous les Dossier',
-    url: '/forms',
+  {
+    name: 'Liste des dossiers',
+    url: '/base/breadcrumbs',
     iconComponent: { name: 'cil-notes' },
-    children: [
+  },
+  {
+    name: 'Liste des dossiers actifs',
+    url: '/base/cards',
+    iconComponent: { name: 'cil-user' },
+  },
+  {
+    name: 'Liste des dossiers expirer',
+    url: '/base/carousel',
+    iconComponent: { name: 'cil-notes' },
+  },
+ 
+//  {
+//     name: 'Versement',
+//     url: '/forms',
+//     children: [
+//       {
+//         name: 'Ajouter un versement',
+//         url: '/forms/checks-radios',
+//         iconComponent: { name: 'cil-bell' },
+//       },
+//        {
+//         name: 'Liste des versements',
+//         url: '/base/collapse',
+//         iconComponent: { name: 'cil-bell' },
+//       },
+//       {
+//         name: 'Sur-Endettement',
+//         url: '/notifications',
+//         iconComponent: { name: 'cil-bell' },
+//       },
     
-      {
-        name: 'Dossiers à traité',
-        url: '/forms/checks-radios'
-      },
-    
-    ]
-  },
+//     ]
+//   },
 
-  {
-    name: 'Surrendettement',
-    url: '/notifications',
-    iconComponent: { name: 'cil-bell' },
-    children: [
-      {
-        name: 'Alerts',
-        url: '/notifications/alerts'
-      },
-
-    ]
-  },
+ 
   /*{
     name: 'Widgets',
     url: '/widgets',

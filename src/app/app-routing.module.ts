@@ -1,18 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { DefaultLayoutComponent } from './containers';
+import { DefaultLayoutComponent, AgentLayoutComponent } from './containers';
 import { Page404Component } from './views/pages/page404/page404.component';
 import { Page500Component } from './views/pages/page500/page500.component';
 import { LoginComponent } from './views/pages/login/login.component';
 import { RegisterComponent } from './views/pages/register/register.component';
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   redirectTo: 'login',
-  //   pathMatch: 'full'
-  // },
+
   {
     path: 'login',
     component: LoginComponent,
@@ -24,7 +20,7 @@ const routes: Routes = [
     path: '',
     component: DefaultLayoutComponent,
     data: {
-      title: 'Home'
+      title: 'Accueil menu administrateur'
     },
     children: [
       {
@@ -79,6 +75,68 @@ const routes: Routes = [
       },
     ]
   },
+
+  {
+      path: '',
+      component: AgentLayoutComponent,
+      data: {
+        title: 'Accueil menu Agent'
+      },
+      
+    children: [
+      {
+        path: 'dashboardAgent',
+        loadChildren: () =>
+          import('./views/dashboard/dashboard.module').then((m) => m.DashboardModule)
+      },
+      {
+        path: 'themeAgent',
+        loadChildren: () =>
+          import('./views/theme/theme.module').then((m) => m.ThemeModule)
+      },
+      {
+        path: 'baseAgent',
+        loadChildren: () =>
+          import('./views/base/base.module').then((m) => m.BaseModule)
+      },
+      {
+        path: 'buttonsAgent',
+        loadChildren: () =>
+          import('./views/buttons/buttons.module').then((m) => m.ButtonsModule)
+      },
+      {
+        path: 'formsAgent',
+        loadChildren: () =>
+          import('./views/forms/forms.module').then((m) => m.CoreUIFormsModule)
+      },
+      {
+        path: 'chartsAgent',
+        loadChildren: () =>
+          import('./views/charts/charts.module').then((m) => m.ChartsModule)
+      },
+      {
+        path: 'iconsAgent',
+        loadChildren: () =>
+          import('./views/icons/icons.module').then((m) => m.IconsModule)
+      },
+      {
+        path: 'notificationsAgent',
+        loadChildren: () =>
+          import('./views/notifications/notifications.module').then((m) => m.NotificationsModule)
+      },
+      {
+        path: 'widgetsAgent',
+        loadChildren: () =>
+          import('./views/widgets/widgets.module').then((m) => m.WidgetsModule)
+      },
+      {
+        path: 'pagesAgent',
+        loadChildren: () =>
+          import('./views/pages/pages.module').then((m) => m.PagesModule)
+      },
+    ]
+  },
+
   {
     path: '404',
     component: Page404Component,

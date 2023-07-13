@@ -1,63 +1,107 @@
+<div class="row mb-3">
+  <div class="col-12">
+      <a routerLink="/add-user">
+        <button class="btn btn-success pull-right waves-effect waves-classic waves-effect waves-classic text-white" type="button">
+          <span class="fa fa-plus"></span> Ajouter un dossier
+        </button>
+      </a>
+    </div>
+</div>
+
 <c-row ngPreserveWhitespaces>
-   
+  
   <c-col xs="12">
     <c-card class="mb-4">
       <c-card-header>
-        <strong>Visu des dossiers de</strong> <small>Banking recover</small>
+        <h5 class="brand-text text-center font-size-10 text-black " style="font-weight: bold">
+          <span class="fa fa-file"></span> Liste des dossiers
+        </h5>
       </c-card-header>
       <c-card-body>
-        <p class="text-medium-emphasis small">
-          Informations sur les dossiers d'un wallet.
-        </p>
-      <div class="table-responsive">
-          <table class="table align-middle" cTable  [striped]="true"  [hover]="true"  [bordered]="true" >
-            <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Nom</th>
-          
-              <th scope="col">Montant</th>
-              <th scope="col">Pourcentage</th>
-              <th scope="col">Versement</th>
-              <th scope="col">Total</th>
-              <th scope="col">Cycle</th>
-              <th scope="col">#Agent</th>
-              <th scope="col">#Client</th>
-              <th scope="col">Delai</th>
-              <th scope="col">Date de creation</th>
-              <th scope="col">Date de promesse</th>
-              <th scope="col">Actions</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-              <tr *ngFor="let folder of folders" >
-                <td class="text-primary">i</td>
-                <td>{{ folder.name }}</td>  
-                <td>{{ folder.montant }}</td>  
-                <td>{{ folder.pourcentage }}</td>  
-                <td>{{ folder.versement }}</td>  
-                <td>{{ folder.montantTotal }}</td>  
-                <td class="text-success">{{ folder.cycle }}</td>  
-                <td>{{ folder.user }}</td>  
-                <td>{{ folder.client }}</td>  
-                <td class="text-danger">{{ folder.delai }}</td>  
-                <td>{{ folder.dateCreation }}</td>  
-                <td class="text-warning">{{ folder.datePromesse }}</td>  
-                <td>
-                    <button class="btn btn-warning"> <i class="fa fa-edit">Editer</i></button>
-                    <button class="btn btn-danger"> <i class="fa fa-trash">Supprimer</i></button>
-                </td>
-              </tr>
+        <div class="table table-responsive  table-striped">
+          <div class="row">
+              <div class="col-4">
+                <label>
+                  Show
+                  <select name="dataT_length" aria-controls="dataT" class="custom-select custom-select-sm form-control form-control-sm">
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                  </select> entries
+                </label>
+              </div>
+              <div class="col-8">
+                <div class="col-sm-12 col-md-6"><div id="dataT_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="dataT">
+                </label>
+                </div>
+                </div>
+              </div>
+            </div>
+       
+              <table id="example" class="table table-striped table-bordered table-hover" style="width:100%">
+                <thead>
+                <tr>
+                  <th   style="width: 8.5px;">#</th>
+                  <th   style="width: 8.5px;">Designation</th>
+                  <th   style="width: 8.5px;">Montant</th>
+                  <th   style="width: 8.5px;">Pourcentage</th>
+                  <th   style="width: 8.5px;">Versement</th>
+                  <th   style="width: 8.5px;">Total Versement</th>
+                  <!-- <th  style="width: 8.5px;">Detail du dossier</th> -->
+                  <!-- <th   style="width: 8.5px;">Cycle</th>
+                  <th   style="width: 8.5px;">Agent</th>
+                  <th   style="width: 8.5px;">Client</th>
+                  <th   style="width: 8.5px;">Delai</th>
+                  <th   style="width: 8.5px;">Date de creation</th>
+                  <th   style="width: 8.5px;">Date de promesse</th> -->
+                  <th   style="width: 8.5px;">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                  <td>i</td>
+                  <td><b> DSCLI450</b>
+                    <i class="fa fa-folder text-warning waves-effect waves-classic fa-2x"></i>
+                  </td>
+                  <td>1,500,000 XAF</td>
+                  <td class="text-center">0.8</td>
+                  <td class="text-success brand-text">100,000 XAF</td>
+                  <td class="text-black brand-text">1,600,000 XAF</td>
+                  <td class="text-center">
+                    <a class="btn-intab btn btn-purple eye-detail waves-effect waves-classic" title="Detail du dossier" href="/detail"><span class="fa fa-eye"></span></a>
+                    <a class="btn btn-info btn-sm waves-effect waves-classic" href=""><span class="fa fa-edit" title="Modifier"></span></a>
+                    <a class="btn btn-danger btn-sm delete-user waves-effect waves-classic" href=""><span class="fa fa-trash" title="Supprimer"></span></a>
+                  </td>
+                  </tr>   
+                <tr>
+                  <tr *ngFor="let folder of folders" >
+                    <td class="text-primary">i</td>
+                    <td>{{ folder.name }}</td>  
+                    <td>{{ folder.montant }}</td>  
+                    <td>{{ folder.pourcentage }}</td>  
+                    <td>{{ folder.versement }}</td>  
+                    <td>{{ folder.montantTotal }}</td>  
+                    <td class="text-success">{{ folder.cycle }}</td>  
+                    <td>{{ folder.user }}</td>  
+                    <td>{{ folder.client }}</td>  
+                    <td class="text-danger">{{ folder.delai }}</td>  
+                    <td>{{ folder.dateCreation }}</td>  
+                    <td class="text-warning">{{ folder.datePromesse }}</td>  
+                    <td>
+                        <button class="btn btn-warning "> <i class="fa fa-edit">Editer</i></button>
+                        <button class="btn btn-danger"> <i class="fa fa-trash">Supprimer</i></button>
+                    </td>
+                  </tr>
 
-           
-            </tbody>
-          </table>
-        </div>
-  
+              
+                </tbody>
+              </table>
+    
+          </div>
+    
       </c-card-body>
     </c-card>
   </c-col>
-
 </c-row>
 

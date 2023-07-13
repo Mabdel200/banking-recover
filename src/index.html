@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <!--
-* CoreUI - Angular 16 Free Admin Template
-* @version v4.5.0
-* @link https://coreui.io/angular/
-* Copyright (c) 2017-2023 creativeLabs Łukasz Holeczek
-* License: MIT
+  **
+  ** Index Page Application
+  **
 -->
 <html lang="en">
 <head>
@@ -17,8 +15,34 @@
     content="CoreUI,Bootstrap,Admin,Template,Free,Angular,Dashboard,Typescript"
     name="keyword"
   />
- <!-- <link href="assets/favicon.ico" rel="icon" type="image/x-icon">-->
+  <base href="/">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="assets/dist/fontawesome-free/css/all.css">
+  <!-- All Dist Assets -->
+  <link rel="stylesheet" type="text/css" href="assets/dist/css/jquery.dataTables.css">
+  <link rel="stylesheet" type="text/css" href="assets/dist/resources/syntax/shCore.css">
+	<link rel="stylesheet" type="text/css" href="assets/dist/resources/demo.css">
+	<style type="text/css" class="init"></style>
+  
+	<script type="text/javascript" language="javascript" src="assets/dist/jquery-3.5.1.js"></script>
+	<script type="text/javascript" language="javascript" src="assets/dist/js/jquery.dataTables.js"></script>
+	<script type="text/javascript" language="javascript" src="assets/dist/resources/syntax/shCore.js"></script>
+	<script type="text/javascript" language="javascript" src="assets/dist/resources/demo.js"></script>
+	<script type="text/javascript" language="javascript" class="init">
+		$(document).ready(function() {
+			$('#example').DataTable();
+		} );
+	</script>
+   <script>
+    $(function () {
+      // Summernote
+      $('#summernote').summernote();
+    })
+   
+  </script>
+  
   <title>Recouvrement Bancaire</title>
+
 </head>
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -29,5 +53,6 @@
       <span class="m-1">Loading...</span>
     </div>
   </app-root>
+
 </body>
 </html>

@@ -1,29 +1,22 @@
 <c-row ngPreserveWhitespaces>
+  <c-col xs="10"  class="col-lg-8 col-md-8 offset-md-2 offset-lg-2">
 
-    <c-col xs="10">
       <c-card class="mb-4">
         <c-card-header>
-          <strong>Formulaire d'enregistrement d'un dossier</strong>
+          <h5 class="brand-text text-center font-size-10 text-black " style="font-weight: bold">
+            <span class="fa fa-plus-circle "></span> Ajouter un nouveau dossier
+        </h5>
         </c-card-header>
         <c-card-body>
-       
+      
             <form cForm  [formGroup]="dataForm" (ngSubmit)="save()" >
               <div class="mb-3">
-                <label cLabel for="exampleFormControlInput1">Designation du dossier</label>
+                <label cLabel for="exampleFormControlInput1">Designation</label>
                 <input cFormControl 
                        id="Name1"
-                       placeholder="Name of the folder"
+                       placeholder="Code du dossier"
                        type="text"
                        formControlName="nom" 
-                />
-              </div>
-              <div class="mb-3">
-                <label cLabel for="exampleFormControlInput1">Date de creation</label>
-                <input cFormControl 
-                       id="dateCreation1"
-                       placeholder=""
-                       type="date"
-                       formControlName="dateCreation" 
                 />
               </div>
               <div class="mb-3">
@@ -32,27 +25,16 @@
                        id="montant"
                        placeholder="Saisir votre montant"
                        type="number"
-                       formControlName="montant" 
-                />
+                       formControlName="montant"    />
               </div>
-              <div class="mb-3">
-                <label cLabel for="exampleForm1">Pourcentage</label>
-                <input cFormControl 
-                       id="percent"
-                       placeholder="Pourcentage"
-                       type="text"
-                       formControlName="pourcentage" 
-                />
-              </div>
+             
               <div class="mb-3">
                 <label cLabel for="exampleFormControlInput1">Delais</label>
                 <input cFormControl 
                           id="Delais1"
                           placeholder=""
                           type="date"
-                       formControlName="delai" 
-
-                  />
+                       formControlName="delai"     />
               </div>
               <div class="mb-3">
                 <label cLabel for="exampleFormControlInput1">Date de promesse</label>
@@ -60,11 +42,8 @@
                           id="Promeuss1"
                           placeholder=""
                           type="date"
-                       formControlName="datePromesse" 
-
-                  />
-              </div>
-              
+                       formControlName="datePromesse"   />
+              </div>         
               <div class="mb-3">
                 <label cLabel for="exampleFormControlInput1">Cycle</label>
                 <select aria-label="Default " cSelect    formControlName="cycle" >
@@ -77,6 +56,7 @@
                   <option value="cycle5">Cycle5</option>
                 </select>
               </div>
+              
               <div class="mb-3">
                 <label cLabel for="exampleFormControlInput1">Agent</label>
                 <select aria-label="Default " cSelect    formControlName="user" >
@@ -92,9 +72,11 @@
                 </select>
               </div>
 
-              <button cButton class="mb-3 mr-1"  type="submit">
-                 Enregistrer
-              </button>
+              <div class="col-lg-6 col-md-6 text-center offset-3">
+                <button type="submit" class="btn btn-primary mt-40 waves-effect waves-classic">
+                    <span class="fa fa-save"></span> Enregistrer
+                </button>
+            </div>
              
             </form>
       
