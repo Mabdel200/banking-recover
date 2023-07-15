@@ -24,6 +24,10 @@ readonly _FOLDER_ACTIF = "/findActifFolder"
 
 readonly _UPDATE_FOLDER = "/updateFolder"
 
+readonly  _UPDATE_STATE_FOLDER = "/updateStateFolder"
+
+readonly  _UPDATE_VERSEMENT_FOLDER = "/addTransaction"
+
 constructor( private httpClient: HttpClient) { }
 
 getFolder(){
@@ -34,7 +38,7 @@ saveFolder( data: any ) {
     return this.httpClient.post((this.API_URL+this.POST_FOLDER), data)
 }
 
- getFolderById( id: string ) {
+ getFolderById( id: any ) {
    return this.httpClient.get( `${this.API_URL+this.FIND_ONE_FOLDER}/${id}` )
 }
 getFolderExpirate() {
@@ -43,8 +47,18 @@ getFolderExpirate() {
 getFolderActif() {
   return this.httpClient.get( `${this.API_URL+this._FOLDER_ACTIF}` )
 }
-updateFolder( id: string, data: any ) {
+updateFolder( id: any, data: any ) {
   return this.httpClient.put(`${this.API_URL+this._UPDATE_FOLDER}/${id}`,  data)
+}
+
+//Update User State By Id iwith services.
+updateStateFolder( id: any, data:boolean ) {
+  return this.httpClient.put(`${this.API_URL+this._UPDATE_STATE_FOLDER}/${id}`,  data)
+}
+
+//Add new versement
+addVersement( id: any, data:any ) {
+  return this.httpClient.put(`${this.API_URL+this._UPDATE_VERSEMENT_FOLDER}/${id}`,  data)
 }
 
 }

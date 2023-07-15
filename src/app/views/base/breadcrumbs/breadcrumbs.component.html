@@ -1,6 +1,6 @@
 <div class="row mb-3">
   <div class="col-12">
-      <a routerLink="/add-user">
+      <a routerLink="/forms/add-folder">
         <button class="btn btn-success pull-right waves-effect waves-classic waves-effect waves-classic text-white" type="button">
           <span class="fa fa-plus"></span> Ajouter un dossier
         </button>
@@ -45,55 +45,30 @@
                   <th   style="width: 8.5px;">#</th>
                   <th   style="width: 8.5px;">Designation</th>
                   <th   style="width: 8.5px;">Montant</th>
-                  <th   style="width: 8.5px;">Pourcentage</th>
+                  <th   style="width: 8.5px;">Catégorie</th>
                   <th   style="width: 8.5px;">Versement</th>
                   <th   style="width: 8.5px;">Total Versement</th>
-                  <!-- <th  style="width: 8.5px;">Detail du dossier</th> -->
-                  <!-- <th   style="width: 8.5px;">Cycle</th>
-                  <th   style="width: 8.5px;">Agent</th>
-                  <th   style="width: 8.5px;">Client</th>
-                  <th   style="width: 8.5px;">Delai</th>
-                  <th   style="width: 8.5px;">Date de creation</th>
-                  <th   style="width: 8.5px;">Date de promesse</th> -->
                   <th   style="width: 8.5px;">Actions</th>
                 </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                  <td>i</td>
-                  <td><b> DSCLI450</b>
-                    <i class="fa fa-folder text-warning waves-effect waves-classic fa-2x"></i>
-                  </td>
-                  <td>1,500,000 XAF</td>
-                  <td class="text-center">0.8</td>
-                  <td class="text-success brand-text">100,000 XAF</td>
-                  <td class="text-black brand-text">1,600,000 XAF</td>
+                  <tr *ngFor="let folder of folders" >
+                    <td class="text-primary">i</td>
+                    <td class="text-center"><b><p>{{ folder.nom }}</p> </b>
+                      <i class="fa fa-folder  text-warning waves-effect waves-classic fa-2x"></i>
+                    </td>
+                  <td>{{ folder.montant }} XAF</td>
+                  <td class="text-center">{{ folder.client.type }}</td>
+                  <td class="text-success brand-text">{{ folder.versement }} XAF</td>
+                  <td class="text-black brand-text "><b>{{ folder.montantTotal }} XAF</b></td>
                   <td class="text-center">
-                    <a class="btn-intab btn btn-purple eye-detail waves-effect waves-classic" title="Detail du dossier" href="/detail"><span class="fa fa-eye"></span></a>
-                    <a class="btn btn-info btn-sm waves-effect waves-classic" href=""><span class="fa fa-edit" title="Modifier"></span></a>
-                    <a class="btn btn-danger btn-sm delete-user waves-effect waves-classic" href=""><span class="fa fa-trash" title="Supprimer"></span></a>
+                    <a class="btn-intab btn btn-purple eye-detail waves-effect waves-classic" (click) = "detailFolder(folder.id)" title="Detail du dossier" ><span   class="fa fa-eye"></span></a>
+                    <a class="btn btn-info btn-sm waves-effect waves-classic"  (click) = "updateFolder(folder.id)" title="Modifier"><span class="fa fa-edit" ></span></a>
+                    <!-- <a class="btn btn-danger btn-sm delete-user waves-effect waves-classic"  (click) = "updateStateFolder(folder.id)"  title="Désactiver"><span class="fa fa-bell" ></span></a>   -->
+                
                   </td>
                   </tr>   
                 <tr>
-                  <tr *ngFor="let folder of folders" >
-                    <td class="text-primary">i</td>
-                    <td>{{ folder.name }}</td>  
-                    <td>{{ folder.montant }}</td>  
-                    <td>{{ folder.pourcentage }}</td>  
-                    <td>{{ folder.versement }}</td>  
-                    <td>{{ folder.montantTotal }}</td>  
-                    <td class="text-success">{{ folder.cycle }}</td>  
-                    <td>{{ folder.user }}</td>  
-                    <td>{{ folder.client }}</td>  
-                    <td class="text-danger">{{ folder.delai }}</td>  
-                    <td>{{ folder.dateCreation }}</td>  
-                    <td class="text-warning">{{ folder.datePromesse }}</td>  
-                    <td>
-                        <button class="btn btn-warning "> <i class="fa fa-edit">Editer</i></button>
-                        <button class="btn btn-danger"> <i class="fa fa-trash">Supprimer</i></button>
-                    </td>
-                  </tr>
-
               
                 </tbody>
               </table>

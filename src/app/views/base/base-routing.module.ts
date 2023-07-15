@@ -76,14 +76,14 @@ const routes: Routes = [
         },
       },
       {
-        path: 'collapse',
+        path: 'collapse/:id',
         component: CollapsesComponent,
         data: {
           title: 'Collapse',
         },
       },
       {
-        path: 'list-group',
+        path: 'list-group/:id',
         component: ListGroupsComponent,
         data: {
           title: 'List Group',

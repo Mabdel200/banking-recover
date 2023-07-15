@@ -17,10 +17,8 @@ export class AddFolderComponent  implements OnInit{
 
   dataForm = new FormGroup({
     nom: new FormControl(),
-    dateCreation: new FormControl(),
     datePromesse: new FormControl(),
     montant: new FormControl(''),
-    pourcentage: new FormControl(''),
     cycle: new FormControl(''),
     delai: new FormControl(''),
     user: new FormControl(''),
@@ -38,7 +36,7 @@ export class AddFolderComponent  implements OnInit{
 
     loadData() {
       // Get all  agent
-      this.userService.getUserByRole('2').subscribe((data) => {
+      this.userService.getUserByRole("Agent").subscribe((data) => {
             console.log(data)
             this.agents = data
        })
@@ -49,12 +47,28 @@ export class AddFolderComponent  implements OnInit{
        })
     }
 
+    dataFolder:any
     save() {   
-        this.folderService.saveFolder(this.dataForm.value).subscribe( )
+      console.log(this.dataForm.value);
+      this.dataFolder = {
+        "nom" : this.dataForm.value.nom,
+        "montant" : this.dataForm.value.montant,
+        "datePromesse" : this.dataForm.value.datePromesse,
+        "cycle" : this.dataForm.value.cycle,
+        "delai" : this.dataForm.value.delai,
+        "user" : {
+            "id":  this.dataForm.value.user
+        },
+        "client" : {
+          "id":  this.dataForm.value.client
+      },
+    }
+
+        this.folderService.saveFolder(this.dataFolder).subscribe( )
         this.redirectToFolderList();
     }
 
     redirectToFolderList(){
-      this.router.navigate(['/base/breadcrumb'])
+      this.router.navigate(['/base/breadcrumbs'])
   }
 }

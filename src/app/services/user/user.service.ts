@@ -2,13 +2,16 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+/**
+ *  @author: abdel aziz abbo
+ */
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class UserService {
-// Connexion to spring project
+
   readonly API_URL = "http://localhost:9090"
 
   readonly FIND_ALLUSERS = "/findAllUser"
@@ -20,6 +23,10 @@ export class UserService {
   readonly _GET_USER_BY_ROLE = "/findAllUserByRole"
 
   readonly _ALL_CLIENTS = "/findAllClient"
+
+  readonly  _UPDATE_USER = "/updateUser"
+
+  readonly  _UPDATE_STATE_USER = "/updateStateUser"
 
 
   constructor( private httpClient: HttpClient) { }
@@ -42,6 +49,14 @@ export class UserService {
 
   getUserByRole( role: any ) {
     return this.httpClient.get( `${this.API_URL+this._GET_USER_BY_ROLE}/${role}` )
- }
-  
+  }
+  //Update User By Id in the service.
+  updateUser( id: any, data: any ) {
+     return this.httpClient.put(`${this.API_URL+this._UPDATE_USER}/${id}`,  data)
+  }
+     //Update User State By Id iwith services.
+  updateStateUser( id: any, data:boolean ) {
+      return this.httpClient.put(`${this.API_URL+this._UPDATE_STATE_USER}/${id}`,  data)
+  }
+
 }

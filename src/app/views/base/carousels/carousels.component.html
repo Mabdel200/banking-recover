@@ -1,6 +1,6 @@
 <div class="row mb-3">
   <div class="col-12">
-      <a routerLink="/add-user">
+    <a routerLink="/forms/add-folder">
         <button class="btn btn-outline-warning pull-right waves-effect waves-classic waves-effect waves-classic text-black " type="button">
           <span class="fa fa-calendar"></span> Augmenter la date de promesse sur la liste en cliquant sur l'icone du calendrier !
         </button>
@@ -14,7 +14,7 @@
     <c-card class="mb-4">
       <c-card-header>
         <h5 class="brand-text text-center font-size-10 text-black " style="font-weight: bold">
-          <span class="fa fa-file"></span> Liste des dossiers <span class="text-danger"> expirer</span> 
+          <span class="fa fa-file"></span> Liste des dossiers <span class="text-danger"> expirés</span> 
         </h5>
       </c-card-header>
       <c-card-body>
@@ -43,66 +43,40 @@
                 <thead>
                 <tr>
                   <th   style="width: 8.5px;">#</th>
-                  <th   style="width: 8.5px;">Designation</th>
+                  <th   style="width: 8.5px;">Désignation</th>
                   <th   style="width: 8.5px;">Delais</th>
                   <th   style="width: 8.5px;">Date de promesse</th>
                   <th   style="width: 8.5px;">Versement</th>
                   <th   style="width: 8.5px;">Total Versement</th>
                   <th   style="width: 8.5px;">Etat</th>
                 
-               
-                  <!-- <th  style="width: 8.5px;">Detail du dossier</th> -->
-                  <!-- <th   style="width: 8.5px;">Cycle</th>
-                  <th   style="width: 8.5px;">Agent</th>
-                  <th   style="width: 8.5px;">Client</th>
-                  <th   style="width: 8.5px;">Delai</th>
-                  <th   style="width: 8.5px;">Date de creation</th>
-                  <th   style="width: 8.5px;">Date de promesse</th> -->
+              
                   <th   style="width: 8.5px;">Actions</th>
                 </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                  <td>i</td>
-                  <td class="text-center"><b><p>DSCLI450</p> </b>
+                  <tr *ngFor="let folder of folders" >
+                    <td class="text-primary">i</td>
+                  <td class="text-center"><b><p>{{ folder.nom }}</p> </b>
                     <i class="fa fa-folder  text-warning waves-effect waves-classic fa-2x"></i>
                   </td>
-                  <td class="text-danger">10-12-2022T</td>
-                  <td class="text-danger">10-01-2023T</td>
-                  <td class="text-success brand-text">100,000 XAF</td>
-                  <td class="text-danger brand-text"><b>1,600,000 XAF</b></td>
+                  <td class="text-danger">{{ folder.delai }}</td>
+                  <td class="text-danger">{{ folder.datePromesse }}</td>
+                  <td class="text-success brand-text">{{ folder.versement }} XAF</td>
+                  <td class="text-danger brand-text"><b>{{ folder.montantTotal }} XAF</b></td>
                 
                   <td class="text-center">
-                    <span class="fa fa-circle text-danger" title="Expirer"></span>
+                    <span class="fa fa-circle text-danger" title="Expiré"></span>
                   </td>
                  
                   <td class="text-center">
                      <!-- <a class="btn btn-danger btn-sm text-white waves-effect waves-classic" href=""><span class="fa fa-edit" title="Desactiver">désactiver</span></a><br> -->
-                      <a class="btn btn-success btn-sm text-white waves-effect waves-classic" href=""  title="Augmenter la date de promesse"><span class="fa fa-calendar" title="Ajouter"></span></a>
+                      <a class="btn btn-success btn-sm text-white waves-effect waves-classic"  (click) = "addDatePromesse(folder.id)"  title="Augmenter la date de promesse"><span class="fa fa-calendar" title="Ajouter"></span></a>
                   </td>
              
                   </tr>   
                 <tr>
-                  <tr *ngFor="let folder of folders" >
-                    <td class="text-primary">i</td>
-                    <td>{{ folder.name }}</td>  
-                    <td>{{ folder.montant }}</td>  
-                    <td>{{ folder.pourcentage }}</td>  
-                    <td>{{ folder.versement }}</td>  
-                    <td>{{ folder.montantTotal }}</td>  
-                    <td class="text-success">{{ folder.cycle }}</td>  
-                    <td>{{ folder.user }}</td>  
-                    <td>{{ folder.client }}</td>  
-                    <td class="text-danger">{{ folder.delai }}</td>  
-                    <td>{{ folder.dateCreation }}</td>  
-                    <td class="text-warning">{{ folder.datePromesse }}</td>  
-                    <td>
-                        <button class="btn btn-warning "> <i class="fa fa-edit">Editer</i></button>
-                        <button class="btn btn-danger"> <i class="fa fa-trash">Supprimer</i></button>
-                    </td>
-                  </tr>
 
-              
                 </tbody>
               </table>
     

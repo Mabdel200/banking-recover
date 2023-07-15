@@ -1,6 +1,6 @@
 <div class="row mb-3">
   <div class="col-12">
-      <a routerLink="/add-user">
+    <a routerLink="/forms/add-folder">
         <button class="btn btn-success pull-right waves-effect waves-classic waves-effect waves-classic text-white" type="button">
           <span class="fa fa-plus"></span> Ajouter un dossier
         </button>
@@ -48,72 +48,42 @@
                   <th   style="width: 8.5px;">Etat</th>
                   <th   style="width: 8.5px;">Versement</th>
                   <th   style="width: 8.5px;">Total Versement</th>
-                  <!-- <th  style="width: 8.5px;">Detail du dossier</th> -->
-                  <!-- <th   style="width: 8.5px;">Cycle</th>
-                  <th   style="width: 8.5px;">Agent</th>
-                  <th   style="width: 8.5px;">Client</th>
-                  <th   style="width: 8.5px;">Delai</th>
-                  <th   style="width: 8.5px;">Date de creation</th>
-                  <th   style="width: 8.5px;">Date de promesse</th> -->
-                  <th   style="width: 8.5px;">Actions</th>
+                  <th   style="width: 12px;">Actions</th>
                 </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                  <td>i</td>
-                  <td><b> DSCLI450</b>
-                    <i class="fa fa-folder  text-warning waves-effect waves-classic fa-2x"></i>
-                  </td>
-                  <td>1,500,000 XAF</td>
-                  <td class="text-center">
-                    <span class="fa fa-circle text-success" title="Actif"></span>
-                  </td>
-                  <td class="text-success brand-text">100,000 XAF</td>
-                  <td class="text-danger brand-text"><b>1,600,000 XAF</b></td>
-                  <td class="text-white">
-                      <a  style="background: #563d7c;" class="btn-intab btn text-white  eye-detail waves-effect waves-classic" title="Detail du dossier" href="/detail"><span class="fa fa-eye">détail</span></a><br>
-                      <a class="btn btn-danger btn-sm text-white waves-effect waves-classic" href=""><span class="fa fa-edit" title="Desactiver">désactiver</span></a><br>
-                      <a class="btn btn-info btn-sm text-white waves-effect waves-classic" href=""><span class="fa fa-coins" title="Ajouter">ajouter un versement</span></a>
-                  </td>
-                  <!-- <td class="show">
-                    <a data-toggle="dropdown"  class="dropdown btn btn-info btn-sm waves-effect waves-classic">
-                        <span class="fa fa-cog"></span> Options
-                    </a>
-
-                    <div class="dropdown-menu" role="menu" x-placement="top-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(714px, -78px, 0px);">
-                        <a class="dropdown-item" href="#" role="menuitem">
-                            <span class="fa fa-eye"></span> Désactiver un dossier
-                          </a>
-                          <a class="dropdown-item" href="" role="menuitem">
-                          <span class="fa fa-money"></span> Ajouter un versement
-                        </a>
-                        <a class="dropdown-item btn-check" href="javascript:;" role="menuitem" data="5">
-                            <span class="fa fa-eye"></span> Détail du dossier
-                          </a>
-                        <a class="dropdown-item" href="" role="menuitem">
-                            <span class="fa fa-check"></span> Dossier en sur-endettement</a>
-                        </div>
-                </td> -->
-                  </tr>   
-                <tr>
                   <tr *ngFor="let folder of folders" >
                     <td class="text-primary">i</td>
-                    <td>{{ folder.name }}</td>  
-                    <td>{{ folder.montant }}</td>  
-                    <td>{{ folder.pourcentage }}</td>  
-                    <td>{{ folder.versement }}</td>  
-                    <td>{{ folder.montantTotal }}</td>  
-                    <td class="text-success">{{ folder.cycle }}</td>  
-                    <td>{{ folder.user }}</td>  
-                    <td>{{ folder.client }}</td>  
-                    <td class="text-danger">{{ folder.delai }}</td>  
-                    <td>{{ folder.dateCreation }}</td>  
-                    <td class="text-warning">{{ folder.datePromesse }}</td>  
-                    <td>
-                        <button class="btn btn-warning "> <i class="fa fa-edit">Editer</i></button>
-                        <button class="btn btn-danger"> <i class="fa fa-trash">Supprimer</i></button>
+                    <td class="text-center"><b><p>{{ folder.nom }}</p> </b>
+                      <i class="fa fa-folder  text-warning waves-effect waves-classic fa-2x"></i>
                     </td>
-                  </tr>
+                  <td>{{ folder.montant }} XAF</td>
+                  <td class="text-center">
+                      <span *ngIf="folder.actif==true;else elseBlock">
+                         <span class="fa fa-circle text-success" title="Actif"></span>
+                    </span>
+                    <ng-template #elseBlock>
+                        <span class="fa fa-circle text-danger" title="Inactif"></span>
+                      </ng-template>
+                  </td>
+                  <td class="text-success brand-text">{{ folder.versement }} XAF</td>
+                  <td class="text-danger brand-text"><b>{{ folder.montantTotal }} XAF</b></td>
+                  <td class="text-white">
+                        <a  style="background: #563d7c;" class="btn-intab btn  btn-sm text-white  eye-detail waves-effect waves-classic" (click) = "detailFolderActif(folder.id)"  title="Detail du dossier" ><span class="fa fa-eye"></span></a>
+                       <!-- Space Status of Folder -->
+                       <span *ngIf="folder.actif==true;else elseBlockLink">
+                            <a class="btn btn-danger btn-sm text-white waves-effect waves-classic"  (click) = "updateStateFolder(folder.id)"  title="Désactiver"  ><span class="fa fa-bell" ></span></a>
+                      </span>
+                      <ng-template #elseBlockLink>
+                         <a class="btn btn-success btn-sm text-white waves-effect waves-classic" (click) = "activatedFolder(folder.id)"  title="Activer"><span class="fa fa-bell" ></span></a>  
+                      </ng-template>
+                     
+                       <!-- End Spce -->
+                        <a class="btn btn-info btn-sm text-white waves-effect waves-classic" (click) = "addVersement(folder.id)"><span class="fa fa-coins" title="Ajouter un versement"></span></a>
+                  </td>
+               
+                  </tr>   
+               
 
               
                 </tbody>

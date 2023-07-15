@@ -10,6 +10,15 @@
         <c-card-body>
       
             <form cForm  [formGroup]="dataForm" (ngSubmit)="save()" >
+            
+              <div class="mb-3">
+                <label cLabel for="exampleFormControlInput1">Client</label>
+                <select aria-label="Default " cSelect formControlName="client"  >
+                    <option>Selectionner le client concerné </option>
+                    <option *ngFor="let client of clients" [ngValue]="client.id">{{client.name}} de categorie {{client.type}} </option>
+                </select>
+              </div>
+
               <div class="mb-3">
                 <label cLabel for="exampleFormControlInput1">Designation</label>
                 <input cFormControl 
@@ -32,8 +41,8 @@
                 <label cLabel for="exampleFormControlInput1">Delais</label>
                 <input cFormControl 
                           id="Delais1"
-                          placeholder=""
-                          type="date"
+                          placeholder="Saisir un delai en nombre de jour"
+                          type="number"
                        formControlName="delai"     />
               </div>
               <div class="mb-3">
@@ -48,15 +57,15 @@
                 <label cLabel for="exampleFormControlInput1">Cycle</label>
                 <select aria-label="Default " cSelect    formControlName="cycle" >
                   <option>Selectionner un cycle </option>
-                  <option value="cycle0">Cycle0</option>
-                  <option value="cycle1">Cycle1</option>
-                  <option value="cycle2">Cycle2</option>
-                  <option value="cycle3">Cycle3</option>
-                  <option value="cycle4">Cycle4</option>
-                  <option value="cycle5">Cycle5</option>
+                  <option value="0">Cycle-0</option>
+                  <option value="1">Cycle-1</option>
+                  <option value="2">Cycle-2</option>
+                  <option value="3">Cycle-3</option>
+                  <option value="4">Cycle-4</option>
+                  <option value="5">Cycle-5</option>
                 </select>
               </div>
-              
+
               <div class="mb-3">
                 <label cLabel for="exampleFormControlInput1">Agent</label>
                 <select aria-label="Default " cSelect    formControlName="user" >
@@ -64,13 +73,8 @@
                     <option *ngFor="let agent of agents" [ngValue]="agent.id">{{agent.username}}</option>
                 </select>
               </div>
-              <div class="mb-3">
-                <label cLabel for="exampleFormControlInput1">Client</label>
-                <select aria-label="Default " cSelect formControlName="client"  >
-                    <option>Selectionner le client concerné </option>
-                    <option *ngFor="let client of clients" [ngValue]="client.id">{{client.name}} de categorie {{client.type}} </option>
-                </select>
-              </div>
+           
+          
 
               <div class="col-lg-6 col-md-6 text-center offset-3">
                 <button type="submit" class="btn btn-primary mt-40 waves-effect waves-classic">

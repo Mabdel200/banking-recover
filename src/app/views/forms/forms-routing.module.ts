@@ -42,7 +42,7 @@ const routes: Routes = [
         redirectTo: 'form-control'
       },
       {
-        path: 'form-control',
+        path: 'form-control/:id',
         component: FormControlsComponent,
         data: {
           title: 'Form Control'
@@ -70,21 +70,21 @@ const routes: Routes = [
         }
       },
       {
-        path: 'input-group',
+        path: 'input-group/:id',
         component: InputGroupsComponent,
         data: {
           title: 'Input Group'
         }
       },
       {
-        path: 'floating-labels',
+        path: 'floating-labels/:id',
         component: FloatingLabelsComponent,
         data: {
           title: 'Floating Labels'
         }
       },
       {
-        path: 'layout',
+        path: 'layout/:id',
         component: LayoutComponent,
         data: {
           title: 'Layout'

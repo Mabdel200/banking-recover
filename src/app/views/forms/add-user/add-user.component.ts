@@ -13,8 +13,8 @@ export class AddUserComponent {
   dataForm = new FormGroup({
     username: new FormControl(),
     email: new FormControl(''),
+    login: new FormControl(),
     telephone: new FormControl(''),
-    profil: new FormControl(''),
     role: new FormControl(''),
 
 });
@@ -30,11 +30,12 @@ export class AddUserComponent {
     }
 
     save() {   
+        console.log(this.dataForm.value);
         this.userService.saveUser(this.dataForm.value).subscribe( )
         this.redirectToUserList();
     }
 
     redirectToUserList(){
-      this.router.navigate(['/base/list_users'])
+      this.router.navigate(['/base/list-users'])
   }
 }

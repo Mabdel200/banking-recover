@@ -1,41 +1,32 @@
-import { Component } from '@angular/core';
-import { UntypedFormBuilder } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FolderService } from 'src/app/services/folder/folder.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-groups',
   templateUrl: './list-groups.component.html',
   styleUrls: ['./list-groups.component.scss']
 })
-export class ListGroupsComponent {
+export class ListGroupsComponent implements OnInit {
 
-  breakpoints = [true, 'sm', 'md', 'lg', 'xl', 'xxl'];
-  colors = ['primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark'];
+   // Initializer
+   public folder: any
+   id:any
 
-  checkBoxes = this.formBuilder.group({
-    one: false,
-    two: false,
-    three: true,
-    four: true,
-    five: {value: false, disabled: true}
-  });
+   constructor( private entityService: FolderService,  private route: ActivatedRoute){}
 
-  constructor(
-    private formBuilder: UntypedFormBuilder
-  ) { }
+  //  Get All entries
+   ngOnInit(): void { 
+        this.loadData();
+    }
 
-  setValue(controlName: string) {
-    const prevValue = this.checkBoxes.get(controlName)?.value;
-    const value = this.checkBoxes.getRawValue();
-    value[controlName] = !prevValue;
-    this.checkBoxes.setValue(value);
-  }
-
-  logValue() {
-    console.log(this.checkBoxes.value);
-    this.checkBoxes.reset();
-  }
-
-  getValue(controlName: string) {
-    return this.checkBoxes.get(controlName);
-  }
+    loadData() {
+        this.id = this.route.snapshot.params['id'];
+        this.entityService.getFolderById(this.id).subscribe ((data) => {
+        console.log(data);
+        this.folder = data;
+      },
+      error => console.log(error)
+      )
+    }
 }

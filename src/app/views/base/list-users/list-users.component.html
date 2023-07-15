@@ -1,6 +1,6 @@
 <div class="row mb-3">
   <div class="col-12">
-      <a routerLink="/add-user">
+      <a routerLink="/forms/add-user">
         <button class="btn btn-success pull-right waves-effect waves-classic waves-effect waves-classic text-white" type="button">
           <span class="fa fa-plus"></span> Ajouter Un Utilisateur
         </button>
@@ -55,31 +55,34 @@
               </tr>
               </thead>
               <tbody>
-                <tr>
-                    <td>i</td>
-                    <td>abdel Abbo</td>
-                    <td>abbo@gmail.com</td>
-                    <td>691093443</td>
-                    <td>Abbo</td>
-                    <td>
-                      <span class="fa fa-circle text-success" title="Actif"></span>
-                    </td>
-                    <td>Agent</td>
-                    <td class="text-center">
-                      <a class="btn btn-info btn-sm waves-effect waves-classic " href=""><span class="fa fa-edit" title="Modifier"></span></a>
-                      <a class="btn btn-danger btn-sm delete-user waves-effect waves-classic " href=""><span class="fa fa-trash" title="Supprimer"></span></a>
-                    </td>
-                  </tr>
                 <tr *ngFor="let user of users" >
                   <td class="text-primary">i</td>
                   <td>{{ user.username }}</td>  
                   <td>{{ user.email }}</td>  
-                  <td>{{ user.phone }}</td> 
-                  <td>{{ user.photo }}</td>  
+                  <td>{{ user.telephone }}</td> 
+                  <td>{{ user.login }}</td>  
+                  <td class="text-center">
+                    <span *ngIf="user.actif==true;else elseBlock">
+                      <span class="fa fa-circle text-success" title="Actif"></span>
+                  </span>
+                  <ng-template #elseBlock>
+                    <span class="fa fa-circle text-danger" title="Inactif"></span>
+                    </ng-template>
+                    <!-- <span class="fa fa-circle text-success" title="Actif"></span> -->
+                  </td>
                   <td class="text-primary">{{ user.role }}</td>    
                   <td>
-                      <button class="btn btn-warning"> <i class="fa fa-edit"></i></button>
-                      <button class="btn btn-danger"> <i class="fa fa-trash"></i></button>
+                    <a class="btn btn-warning btn-sm waves-effect waves-classic"  (click) = "updateUser(user.id)" title="Modifier"><span class="fa fa-edit" ></span></a>
+                   
+                    <span *ngIf="user.actif==true;else elseBlockBtn">
+                        <a class="btn btn-danger btn-sm delete-user waves-effect waves-classic"  (click) = "updateStateUser(user.id)"  title="Désactiver"><span class="fa fa-bell" ></span></a>  
+                    </span>
+                  <ng-template #elseBlockBtn>
+                      <a class="btn btn-success text-white btn-sm delete-user waves-effect waves-classic"  (click) = "activatedUser(user.id)"  title="Activer"><span class="fa fa-bell" ></span></a>  
+                    </ng-template>
+                
+                      <!-- <button class="btn btn-warning"> <i class="fa fa-edit"></i></button>
+                      <button class="btn btn-danger"> <i class="fa fa-trash"></i></button> -->
                   </td>
                 </tr>
               </tbody>

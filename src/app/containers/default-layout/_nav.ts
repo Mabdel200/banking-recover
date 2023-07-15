@@ -62,7 +62,7 @@ export const navItems: INavData[] = [
     iconComponent: { name: 'cil-user' },
   },
   {
-    name: 'Liste des dossiers expirer',
+    name: 'Liste des dossiers expirés',
     url: '/base/carousel',
     iconComponent: { name: 'cil-notes' },
   },
